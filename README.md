@@ -1,6 +1,22 @@
 # twee2yoto
 
-A TypeScript library for converting Twine/Twee JSON to Yoto format for interactive audio content.
+A TypeScript library for converting Twine/TweeJSON to YotoJSON format for interactive audio content.
+
+## Related Packages
+
+This package is designed to work together with [`@yotoplay/twee2json`](https://github.com/yotoplay/twee2json) to provide a complete Twee to Yoto conversion pipeline:
+
+- **`@yotoplay/twee2json`**: Converts Twee format to TweeJSON
+- **`@yotoplay/twee2yoto`**: Converts TweeJSON to YotoJSON
+
+### Complete Workflow
+
+```bash
+# Convert Twee to TweeJSON
+npm install @yotoplay/twee2json
+# Then convert TweeJSON to YotoJSON
+npm install @yotoplay/twee2yoto
+```
 
 ## Installation
 
