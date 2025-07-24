@@ -31,8 +31,17 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Release
+      - name: Debug GitHub Token
+        run: |
+          echo "Testing GitHub API access..."
+          curl -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+               -H "Accept: application/vnd.github.v3+json" \
+               https://api.github.com/repos/yotoplay/twee2yoto
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN || secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: npx semantic-release 
