@@ -36,31 +36,8 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Debug GitHub Token
-        run: |
-          echo "Testing GitHub API access..."
-          curl -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-               -H "Accept: application/vnd.github.v3+json" \
-               https://api.github.com/repos/yotoplay/twee2yoto
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Debug NPM Token
-        run: |
-          echo "Testing NPM token..."
-          echo "Token length: ${#NPM_TOKEN}"
-          echo "Token starts with: ${NPM_TOKEN:0:8}"
-          echo "Testing npm whoami..."
-          npm whoami --registry https://registry.npmjs.org/
-          echo "Testing npm token list..."
-          npm token list
-          echo "Testing npm access to @yotoplay scope..."
-          npm access ls-collaborators @yotoplay/twee2yoto
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-
       - name: Release
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN || secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: npx semantic-release 
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npx semantic-release
