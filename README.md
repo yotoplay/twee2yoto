@@ -183,6 +183,46 @@ npm run lint
 
 # Format code
 npm run format:fix
+
+# Run semantic-release locally (for testing)
+npm run release
+```
+
+## Releases
+
+This project uses [semantic-release](https://github.com/semantic-release/semantic-release) for automated versioning and publishing. The release process is triggered automatically when changes are pushed to the `main` branch.
+
+### Commit Message Format
+
+To ensure proper versioning, commit messages should follow the [Conventional Commits](https://www.conventionalcommits.org/) specification:
+
+- `feat:` - New features (triggers minor version bump)
+- `fix:` - Bug fixes (triggers patch version bump)
+- `BREAKING CHANGE:` - Breaking changes (triggers major version bump)
+- `docs:` - Documentation changes (no version bump)
+- `style:` - Code style changes (no version bump)
+- `refactor:` - Code refactoring (no version bump)
+- `test:` - Adding or updating tests (no version bump)
+- `chore:` - Maintenance tasks (no version bump)
+
+### Release Process
+
+1. Push changes to the `main` branch
+2. GitHub Actions automatically runs tests and builds
+3. If tests pass, semantic-release analyzes commit messages
+4. If a new version is needed, it:
+   - Updates the version in `package.json`
+   - Generates release notes
+   - Updates `CHANGELOG.md`
+   - Publishes to npm
+   - Creates a GitHub release
+
+### Manual Release
+
+To run semantic-release locally (for testing):
+
+```bash
+npm run release
 ```
 
 ## License

@@ -1,6 +1,5 @@
 {
   "name": "@yotoplay/twee2yoto",
-  "version": "1.0.1",
   "description": "Convert Twine/Twee JSON to Yoto format",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -23,7 +22,8 @@
     "format": "prettier --check .",
     "format:fix": "prettier --write .",
     "typecheck": "tsc --noEmit",
-    "prepublishOnly": "npm run build && npm test"
+    "prepublishOnly": "npm run build && npm test",
+    "release": "semantic-release"
   },
   "keywords": [
     "twine",
@@ -44,10 +44,17 @@
   },
   "homepage": "https://github.com/yotoplay/twee2yoto#readme",
   "devDependencies": {
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/commit-analyzer": "^13.0.1",
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/github": "^11.0.3",
+    "@semantic-release/npm": "^12.0.2",
+    "@semantic-release/release-notes-generator": "^14.0.3",
     "@tsconfig/node20": "^20.1.2",
     "@types/node": "^20.0.0",
     "eslint": "^9.15.0",
     "prettier": "^3.3.3",
+    "semantic-release": "^24.2.7",
     "typescript": "^5.6.3",
     "vitest": "^3.2.3"
   }
