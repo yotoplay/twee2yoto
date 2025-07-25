@@ -1,3 +1,15 @@
+# [1.2.0](https://github.com/yotoplay/twee2yoto/compare/v1.1.0...v1.2.0) (2025-07-25)
+
+
+### Bug Fixes
+
+* add write permissions for semantic-release git operations ([17cb6dd](https://github.com/yotoplay/twee2yoto/commit/17cb6dd345f1a294cde8dca2a27f1e4938cb56dd))
+
+
+### Features
+
+* enable npm provenance with OIDC authentication ([c3a380e](https://github.com/yotoplay/twee2yoto/commit/c3a380e73d8ce8e364afe9c05722e4ae1c2bcd4a))
+
 # [1.1.0](https://github.com/yotoplay/twee2yoto/compare/v1.0.1...v1.1.0) (2025-07-24)
 
 
